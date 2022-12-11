@@ -66,7 +66,34 @@ CIRCUIT DIAGRAM
 9.	Ensure safety before powering up the device.
 
 
-### PROGRAM :
+ PROGRAM :
+ ```
+ // C++ code
+#include<Servo.h>
+
+Servo myservo;
+int value;
+double angle;
+
+void setup()
+{
+ Serial.begin(9600);
+ myservo.attach(9);
+}
+
+void loop()
+{
+ value = analogRead(A0);
+ angle = map(value,0,1023,0,180);
+ Serial.println(angle);
+ myservo.write(angle);
+ delay(15);
+}
+```
+OUTPUT:
+
+![image](https://user-images.githubusercontent.com/104021170/206892587-128cb054-b64b-4ad0-9619-3347ee9d4e91.png)
+
  
 
 
@@ -77,5 +104,6 @@ CIRCUIT DIAGRAM
 
 
 
-### RESULTS: 
+RESULTS: 
+
 Arduino uno interfacing with servo motor is learned and angular position is controlled using PWM signal.
